@@ -1,0 +1,50 @@
+.summary {
+    width: 100%;
+    margin: 50px 90px 20px 90px;
+    position: relative;
+}
+
+.subscription-list {
+    margin-top: 40px;
+}
+
+.subscription-plan {
+    display: flex;
+    background-color: hsl(217, 100%, 97%);
+    font-weight: bold;
+    padding: 30px 20px;
+    justify-content: space-between;
+    border-bottom: 1px solid gray;
+}
+
+.subscription-addons {
+    padding: 30px 20px;
+    background-color: hsl(217, 100%, 97%);
+    border-bottom: 1px solid gray;
+}
+
+.subscription-addons div {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.addon {
+    padding: 15px 0;
+}
+
+.total {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 20px;
+}
+
+.subs-plan-name, .addons-name, .total p {
+    color: hsl(231, 11%, 63%);
+    font-weight: bold;
+}
+
+.subs-plan-price, .addons-price, .total h3 {
+    color: hsl(213, 96%, 18%);
+}

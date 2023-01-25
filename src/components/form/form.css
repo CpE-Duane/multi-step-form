@@ -1,0 +1,857 @@
+.body {
+    height: 100vh;
+    background-color: hsl(229, 24%, 87%);
+    position: relative;
+}
+
+.navbar {
+    background-image: url('../../assets/images/bg-sidebar-mobile.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 200px;
+}
+
+.navbar ul {
+    list-style-type: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    gap: 15px;
+}
+
+.step {
+    border: 2px solid #fff;
+    border-radius: 100%;
+    padding: 10px 15px;
+    font-weight: bold;
+}
+
+.current-step {
+    border: 2px solid #fff;
+    border-radius: 100%;
+    padding: 10px 15px;
+    font-weight: bold;
+    color: black;
+    background-color: hsl(206, 94%, 87%);
+}
+
+.step-name {
+    display: none;
+}
+
+.errorMsg {
+    color: red;
+}
+
+/* ----------------------------------------------------------------------------------------------------- */
+
+/* step 1 */
+
+
+.personal-info-form {
+    position: absolute;
+    background-color: #fff;
+    margin: 0 15px;
+    padding: 25px 20px;
+    border-radius: 10px;
+    top: 100px;
+}
+
+.personal-info-form p {
+    color: hsl(231, 11%, 63%);
+    font-size: 16px;
+    margin-top: 10px;
+    line-height: 25px;
+    font-weight: 450;
+}
+
+.label-and-error {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    color: hsl(213, 96%, 18%);
+    margin: 20px 0 5px 0;
+}
+
+form input {
+    padding: 15px 10px;
+    border: 1px solid hsl(229, 24%, 87%);
+    border-radius: 5px;
+    width: calc(100% - 20px);
+    font-weight: bold;
+    font-size: 17px;
+}
+
+form input:focus {
+    outline: 2px solid hsl(213, 96%, 18%);
+}
+
+form input::placeholder {
+    font-size: 600;
+    color: hsl(231, 11%, 63%);
+    font-size: 17px;
+}
+
+.page-buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: end;
+}
+
+.next-step {
+    background-color: hsl(243, 100%, 62%);
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 15px 20px;
+    cursor: pointer;
+}
+
+.next-step:hover {
+    background-color: hsl(213, 96%, 18%);
+}
+
+
+
+
+
+/* -------------------------------------------------------------------------------------- */
+
+/* step 2 */
+
+.select-plan {
+    position: absolute;
+    background-color: #fff;
+    margin: 0 15px;
+    padding: 20px 15px;
+    border-radius: 10px;
+    top: 100px;
+}
+
+.select-plan h1 {
+    font-size: 22px;
+}
+
+.select-plan .instructions {
+    color: hsl(231, 11%, 63%);
+    font-size: 16px;
+    margin-top: 5px;
+    line-height: 25px;
+    font-weight: 450;
+}
+
+
+.options {
+    margin-top: 20px;
+    width: 100%;
+    gap: 30px;
+}
+
+.plan {
+    border: 1px solid hsl(229, 24%, 87%);
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 20px;
+    width: calc(100% - 50px);
+}
+
+.price p {
+    color: hsl(231, 11%, 63%);
+}
+
+
+.selected {
+    border: 1px solid hsl(243, 100%, 62%);
+    box-shadow: 5px 5px hsl(243, 100%, 62%);
+}
+
+
+.monthly-yearly {
+    background-color: hsl(217, 100%, 97%);
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px 0;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: hsl(213, 96%, 18%);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 13px;
+    width: 15px;
+    top: 3px;
+    left: 3px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: hsl(213, 96%, 18%);
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px hsl(213, 96%, 18%);
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(20px);
+    -ms-transform: translateX(20px);
+    transform: translateX(20px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 10px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.time {
+    color: hsl(231, 11%, 63%);
+}
+
+.selected-time {
+    color: hsl(213, 96%, 18%);
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.go-back {
+    border: none;
+    color: hsl(243, 100%, 62%);
+    background-color: transparent;
+    border-radius: 10px;
+    padding: 14px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.go-back:hover {
+    color: hsl(213, 96%, 18%);
+}
+
+/* ------------------------------------------------------------------------------ */
+
+/* step 3 */
+
+.select-add-ons {
+    position: absolute;
+    background-color: #fff;
+    margin: 0 15px;
+    padding: 20px 15px;
+    border-radius: 10px;
+    top: 100px;
+}
+
+.select-add-ons .instructions {
+    color: hsl(231, 11%, 63%);
+    font-size: 16px;
+    margin-top: 10px;
+    line-height: 25px;
+    font-weight: 450;
+}
+
+.addons-options {
+    margin-top: 30px;
+}
+.add-ons {
+    border: 2px solid hsl(217, 100%, 97%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    width: calc(100% - 25px);
+    background-color: hsl(217, 100%, 97%);
+    border-radius: 10px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.add-ons-name h3 {
+    font-size: 15px;
+}
+
+.benefits {
+    font-size: 13px;
+}
+
+.selected-add-ons {
+    border: 2px solid hsl(213, 96%, 18%);
+}
+
+.add-ons-name {
+    display: flex;
+}
+
+.add-ons-name div {
+    margin-left: 20px;
+}
+
+.add-ons-name div p {
+    color: hsl(231, 11%, 63%);
+    margin-top: 5px;
+}
+
+.add-ons-name input {
+    height: 50px;
+    width: 20px;
+    cursor: pointer;
+}
+
+/* -------------------------------------------------------------------------------------------- */
+
+/* responsive */
+
+@media screen and (min-width: 360px) {
+    .personal-info-form {
+        margin: 0 25px;
+        padding: 25px;
+    }
+
+    .personal-info-form p {
+        font-size: 17px;
+        line-height: 25px;
+        margin-top: 10px;
+    }
+
+    .select-plan {
+        margin: 0 20px;
+        padding: 25px;
+        top: 95px;
+        bottom: 20px;
+    }
+
+    .select-plan h1 {
+        font-size: 27px;
+    }
+
+    .select-plan .instructions {
+        font-size: 16px;
+        margin-top: 10px;
+        line-height: 25px;
+    }
+
+    .plan {
+        margin-bottom: 10px;
+        width: calc(100% - 41px);
+        padding: 15px 20px;
+    }
+
+    .price p {
+        margin-top: 5px;
+    }
+
+    .monthly-yearly {
+        gap: 20px;
+        padding: 15px 0;
+        margin-top: 15px;
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    .add-ons-name h3 {
+        font-size: 16px;
+    }
+
+    .benefits {
+        font-size: 15px;
+    }
+
+    .buttons {
+        margin-top: 10px;
+    }
+
+
+
+}
+
+@media screen and (min-width: 426px) {
+    .navbar {
+        height: 400px;
+    }
+
+    .step,
+    .current-step {
+        padding: 15px 20px;
+        font-size: 17px;
+    }
+
+    .personal-info-form {
+        margin: 0 25px;
+        padding: 35px;
+        border-radius: 10px;
+        top: 120px;
+    }
+
+    .personal-info-form p {
+        font-size: 19px;
+        line-height: 25px;
+    }
+
+    .label-and-error {
+        font-size: 17px;
+    }
+
+    .next-step {
+        padding: 15px 25px;
+        right: 25px;
+        bottom: 25px;
+        font-size: 18px;
+    }
+
+    .navbar ul {
+        height: 120px;
+        gap: 20px;
+        font-size: 19px;
+    }
+
+    /* step 2 */
+
+    .select-plan {
+        margin: 0 30px;
+        padding: 25px;  
+        top: 120px;     
+    }
+}
+
+@media screen and (min-width: 462px) {
+    .select-plan {
+        margin: 20px 35px;
+        padding: 30px 25px;
+    }
+
+    .options {
+        margin-top: 25px;
+    }
+
+    .plan {
+        padding: 20px 25px;
+        margin-bottom: 20px;
+    }
+
+    .price p {
+        margin-top: 5px;
+    }
+}
+
+@media screen and (min-width: 522px) {
+    .select-plan {
+        padding: 35px;
+    }
+}
+
+@media screen and (min-width: 542px) {
+    .select-plan h1 {
+        font-size: 35px;
+    }
+
+    .select-plan .instructions {
+        font-size: 20px;
+        line-height: 30px;
+    }
+
+    .plan {
+        margin-bottom: 20px;
+        width: calc(100% - 42px);
+        padding: 20px;
+    }
+}
+
+@media screen and (min-width: 587px) {
+    .select-plan {
+        top: 100px;
+    }
+
+    .select-plan h1 {
+        font-size: 37px;
+    }
+
+    .select-plan .instructions {
+        font-size: 22px;
+        line-height: 30px;
+    }
+
+    .plan {
+        margin-bottom: 25px;
+        padding: 25px;
+        width: calc(100% - 51px);
+    }
+}
+
+@media screen and (min-width: 658px) {
+    .personal-info-form p {
+        font-size: 22px;
+        line-height: 30px;
+        font-weight: 400;
+        margin: 25px 0;
+    }
+}
+
+@media screen and (min-width: 728px) {
+    .navbar ul {
+        height: 150px;
+        gap: 20px;
+        font-size: 30px;
+        font-weight: 700;
+    }
+
+    .personal-info-form {
+        top: 150px;
+        margin: 0 50px;
+        padding: 40px;
+    }
+
+    .next-step {
+        right: 50px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .select-plan {
+        top: 130px;
+        width: calc(100% - 205px);
+        bottom: 20px;
+        margin: 0 70px;
+    }
+
+    .select-plan h1 {
+        font-size: 35px;
+    }
+
+    .select-plan .instructions {
+        font-size: 22px;
+    }
+
+    .price h3 {
+        font-size: 25px;
+    }
+
+    .price p {
+        font-size: 20px;
+    }
+
+    .monthly-yearly {
+        font-size: 20px;
+    }
+
+
+}
+
+@media screen and (min-width: 788px) {
+    .personal-info-form {
+        margin: 0 70px;
+    }
+
+    .next-step {
+        right: 70px;
+    }
+}
+
+@media screen and (min-width: 828px) {
+    .personal-info-form {
+        margin: 0 100px;
+    }
+
+    .next-step {
+        right: 100px;
+    }
+}
+
+@media screen and (min-width: 873px) {
+    .navbar {
+        height: 700px;
+    }
+
+    .personal-info-form {
+        padding: 40px 60px;
+    }
+
+    .label-and-error {
+        font-size: 19px;
+        margin: 30px 0 10px 0;
+    }
+
+    form input {
+        padding: 15px 10px;
+        border-radius: 5px;
+        font-size: 19px;
+    }
+}
+
+/* laptop */
+
+@media screen and (min-width: 928px) {
+    .body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .card {
+        display: flex;
+        background-color: #fff;
+        width: 840px;
+        border-radius: 10px;
+    }
+
+    .navbar {
+        background-image: url('../../assets/images/bg-sidebar-desktop.svg');
+        background-size: cover;
+        height: 700px;
+        min-width: 300px;
+        border-radius: 10px;
+        margin: 10px;
+    }
+
+    .navbar ul {
+        display: block;
+        margin: 40px 0 0 30px;
+        height: auto;
+    }
+
+    .navbar ul li {
+        margin-top: 40px;
+        display: flex;
+    }
+
+    .navbar ul li div {
+        font-size: 17px;
+        margin-left: 20px;
+        line-height: 23px;
+        letter-spacing: 1px;
+    }
+
+
+    .step {
+        border: 2px solid #fff;
+        border-radius: 100%;
+        padding: 15px 20px;
+        font-weight: bold;
+    }
+
+    .step-name {
+        display: block;
+    }
+
+    .step-name p {
+        color: hsl(231, 11%, 63%);
+    }
+
+
+    .personal-info-form {
+        position: relative;
+        top: 0;
+        margin: 10px;
+        border-radius: 0;
+    }
+
+    .personal-info-form p {
+        font-size: 17px;
+        line-height: 20px;
+        margin: 15px 0;
+    }
+
+    .label-and-error {
+        margin-bottom: 5px;
+    }
+
+    .next-step {
+        position: absolute;
+        bottom: 0;
+        right: 60px;
+    }
+
+}
+
+@media screen and (min-width: 992px) {
+    .select-plan {
+        position: relative;
+        top: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    .go-back {
+        position: absolute;
+        bottom: 10px;
+    }
+
+    .next-step {
+        position: absolute;
+        right: 35px;
+        bottom: 10px;
+    }
+
+
+    .select-plan h1 {
+        font-size: 30px;
+    }
+
+    .select-plan .instructions {
+        font-size: 18px;
+    }
+
+}
+
+@media screen and (min-width: 1024px) {
+    .card {
+        width: 900px;
+    }
+
+    .navbar {
+        min-width: 300px;
+        margin: 20px;
+    }
+
+    .navbar ul {
+        margin-left: 60px 0;
+    }
+
+    .personal-info-form {
+        width: 100%;
+        margin: 40px 80px 20px 60px;
+        padding: 10px;
+    }
+
+    .current-step {
+        padding: 15px 20px;
+        font-size: 16px;
+        background-color: hsl(206, 94%, 87%);
+        color: black;
+        border-radius: 100%;
+    }
+
+    .next-step {
+        right: 10px;
+    }
+
+    /* step 2 */
+
+    .select-plan {
+        width: calc(100% - 400px);
+        margin: 20px;
+        padding: 40px 0 0 0;
+    }
+
+    .options {
+        display: flex;
+        width: 100%;
+        gap: 15px;
+        margin-top: 30px;
+    }
+
+    .plan {
+        padding: 20px;
+        flex-direction: column;
+    }
+
+    .price {
+        margin-top: 15px;
+    }
+
+    .price h3 {
+        font-size: 18px;
+    }
+
+    .price p {
+        font-size: 16px;
+    }
+
+    .monthly-yearly {
+        margin-top: 0;
+        padding: 20px 0;
+        font-size: 17px;
+        border-radius: 10px;
+    }
+
+    .go-back {
+        bottom: 0;
+    }
+
+    .next-step {
+        bottom: 0;
+        right: 0;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .card {
+        width: 80%;
+    }
+
+    .navbar {
+        min-width: 350px;
+    }
+
+    .personal-info-form {
+        width: 100%;
+        margin: 40px 100px 20px 80px;
+        padding: 10px;
+    }
+
+    /* step 2 */
+
+    .select-plan {
+        padding: 0;
+        margin: 40px 80px 20px 80px;
+    }
+
+    .options {
+        width: 100%;
+        gap: 25px;
+    }
+
+    .monthly-yearly {
+        padding: 15px 0;
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    .card {
+        width: 60%;
+    }
+}

@@ -11,7 +11,7 @@ function App() {
       <ToastContainer limit={2}/>
       <Router>
         <Routes>
-          <Route path='/' element={<Form />}/>
+          <Route path='/multi-step-form' element={<Form />}/>
         </Routes>
       </Router>
     </div>

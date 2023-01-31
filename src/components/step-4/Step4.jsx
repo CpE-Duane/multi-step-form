@@ -29,18 +29,18 @@ const Step4 = (props) => {
         <div className='summary'>
             <h1>Finishing up</h1>
             <p className='instructions'>
-                Double-check everything looks OK before confirming
+                Double-check everything looks OK before confirming.
             </p>
 
             <div className="subscription-list">
                 <div className="subscription-plan">
                     <div className='subs-plan-name'>
                         {props.selectedPlan.name}
-                        {props.selectedPlan.monthly ? ' (Monthly)' : ' (Yearly)'}
+                        {props.selectedPlan.yearly ? ' (Yearly)' : ' (Monthly)'}
                     </div>
                     <div className='subs-plan-price'>
-                        ${props.selectedPlan.monthly ? props.selectedPlan.priceMonthly: props.selectedPlan.priceYearly}/
-                        {props.selectedPlan.monthly ? 'mo' : 'yr'}
+                        ${props.selectedPlan.yearly ? props.selectedPlan.price * 12: props.selectedPlan.price}/
+                        {props.selectedPlan.yearly ? 'yr' : 'mo'}
                     </div>
                 </div>
                 {
@@ -67,11 +67,11 @@ const Step4 = (props) => {
 
             <div className='total'>
                 <p>
-                    Total {props.selectedPlan.monthly ? ' (Monthly)' : ' (Yearly)'}
+                    Total {props.selectedPlan.yearly ? ' (Yearly)' : ' (Monthly)'}
                 </p>
                 <h3>
-                    ${total + (props.selectedPlan.monthly ? props.selectedPlan.priceMonthly : props.selectedPlan.priceYearly)}/
-                    {props.selectedPlan.monthly ? 'mo' : 'yr'}
+                    ${total + (props.selectedPlan.yearly ? props.selectedPlan.price * 12 : props.selectedPlan.price)}/
+                    {props.selectedPlan.yearly ? 'yr' : 'mo'}
                 </h3>
             </div>
 

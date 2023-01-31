@@ -1,5 +1,4 @@
 import React from 'react'
-import './thankyou.css'
 import tyLogo from '../../assets/images/icon-thank-you.svg'
 
 const ThankYou = () => {

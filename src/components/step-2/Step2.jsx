@@ -7,80 +7,85 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Step2 = (props) => {
 
-    let [selectedPlan, setSelectedPlan] = useState({
+    const [selectedPlan, setSelectedPlan] = useState({
         name: '',
         img: '',
-        monthly: false,
+        yearly: false,
         price: 0,
         selected: false
     })
 
-    let [time, setTime] = useState(false)
+    const [isYearly, setIsYearly] = useState(false)
 
-    let [options, setOptions] = useState([
+    const [options, setOptions] = useState([
         {
             name: 'Arcade',
             img: arcade,
-            monthly: true,
             yearly: false,
-            priceMonthly: 10,
-            priceYearly: 120,
+            price: 10,
             selected: false
         },
         {
             name: 'Advanced',
             img: advanced,
-            monthly: true,
             yearly: false,
-            priceMonthly: 20,
-            priceYearly: 240,
+            price: 20,
             selected: false
         },
         {
             name: 'Pro',
             img: pro,
-            monthly: true,
             yearly: false,
-            priceMonthly: 30,
-            priceYearly: 360,
+            price: 30,
             selected: false
         }
     ])
 
-    let chooseOption = (option) => {
+    const chooseOption = (option) => {
         setSelectedPlan({
             ...option,
-            selected: true,           
-        })
-
-    }
-
-
-    let selectTime = () => {
-        setTime(!time)
-        setSelectedPlan({
-            ...selectedPlan,
-            monthly: time,
-            yearly: !time
+            selected: true,
+            yearly: isYearly
         })
     }
 
 
-    let nextStep = () => {
+    const selectTime = () => {
+        setIsYearly(prev => !prev)
+    }
+
+    useEffect(() => {
+        setSelectedPlan(prev => {
+            return {
+                ...selectedPlan,
+                yearly: isYearly
+            }
+        })
+        console.log(selectedPlan)
+
+        return () => {
+            return {
+                ...selectedPlan
+            }
+        }
+    }, [isYearly])
+
+    const nextStep = () => {
         props.plan(selectedPlan)
         if (selectedPlan.name === '') {
-            errorMsg("Please select your plan")
+            errorMsg("Please select your plan.")
             return
         } else {
             props.step(3)
         }
+        console.log(selectedPlan)
     }
 
-    let goBack = () => {
+    const goBack = () => {
         props.step(1)
     }
 
-    let errorMsg = (msg) => {
+    const errorMsg = (msg) => {
         toast.error(msg, {
             position: "top-right",
             autoClose: 3000,
@@ -90,9 +95,8 @@ const Step2 = (props) => {
             draggable: true,
             progress: undefined,
             theme: "colored",
-            });
+        });
     }
-
 
     return (
         <div className='select-plan'>
@@ -113,9 +117,7 @@ const Step2 = (props) => {
                                 <div className='price'>
                                     <h3>{option.name}</h3>
                                     <p>
-                                        ${!time ? 
-                                        `${option.priceMonthly}/mo` : 
-                                        `${option.priceYearly}/yr`}
+                                        ${isYearly ? `${option.price * 12}/yr` : `${option.price}/mo`}
                                     </p>
                                 </div>
                             </div>
@@ -125,14 +127,14 @@ const Step2 = (props) => {
             </div>
 
             <div className="monthly-yearly">
-                <p className={`time ${!time ? 'selected-time' : ''}`}>Monthly</p>
+                <p className={`time ${!isYearly ? 'selected-time' : ''}`}>Monthly</p>
                 <label className="switch">
-                    <input type="checkbox" 
-                        onChange={selectTime} 
-                        checked={time && true} />
+                    <input type="checkbox"
+                        onChange={selectTime}
+                        checked={isYearly} />
                     <span className="slider round"></span>
                 </label>
-                <p className={`time ${time ? 'selected-time' : ''}`}>Yearly</p>
+                <p className={`time ${isYearly ? 'selected-time' : ''}`}>Yearly</p>
             </div>
 
             <div className="buttons">

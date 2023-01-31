@@ -3,24 +3,24 @@ import { useEffect } from 'react'
 
 const Step3 = (props) => {
 
-    let [selectedAddOns, setSelectedAddOns] = useState([])
-    let [addOns, setAddOns] = useState([
+    const [selectedAddOns, setSelectedAddOns] = useState([])
+    const [addOns, setAddOns] = useState([
         {
             name: 'Online service',
             instructions: 'Access to multiplayer games',
-            price: props.selectedPlan.monthly ? 1 : 12,
+            price: props.selectedPlan.yearly ?  12 : 1,
             id: 1
         },
         {
             name: 'Larger Storage',
             instructions: 'Extra 1TB of cloud save',
-            price: props.selectedPlan.monthly ? 2 : 24,
+            price: props.selectedPlan.yearly ?  24 : 2,
             id: 2
         },
         {
             name: 'Customizable Profile',
             instructions: 'Custom theme on your profile',
-            price: props.selectedPlan.monthly ? 2 : 24,
+            price: props.selectedPlan.yearly ?  36 : 3,
             id: 3
         }
     ])
@@ -70,7 +70,7 @@ const Step3 = (props) => {
                                         </p>
                                     </div>
                                 </div>
-                                <p>+${addon.price}/{props.selectedPlan.monthly ? 'mo' : 'yr'}</p>
+                                <p className='add-ons-price'>+${addon.price}/{props.selectedPlan.yearly ? 'yr' : 'mo'}</p>
                             </div>
                         )
                     })

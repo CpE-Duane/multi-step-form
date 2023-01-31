@@ -8,7 +8,7 @@ const Step1 = (props) => {
     let schema = yup.object().shape({
         name: yup.string().required("Name is required."),
         email: yup.string().email("Invalid email.").required("Email is required."),
-        phoneNo: yup.number().transform((value) => (isNaN(value) ? undefined : value)).required("Phone number is required."),
+        phoneNo: yup.number().transform((value) => (isNaN(value) ? undefined : value)).required("Number is required."),
     })
 
     let { register, handleSubmit, formState: { errors } } = useForm({
